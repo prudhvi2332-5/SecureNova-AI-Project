@@ -1,0 +1,9 @@
+define bot refuse to respond
+  "I cannot process this request because it matches a security attack pattern."
+
+define flow check project attack payloads
+  $is_safe = execute check_project_attack_payloads
+
+  if not $is_safe
+    bot refuse to respond
+    stop
